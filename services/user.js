@@ -10,4 +10,9 @@ const userExists = async (emailInfo) => {
  return existUser;
 };
 
-module.exports = { userCreate, userExists };
+const userAll = async () => {
+    const usersAll = await User.findAll();
+    return usersAll;
+};
+
+module.exports = { userCreate, userExists, userAll };

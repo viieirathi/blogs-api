@@ -1,4 +1,4 @@
-const { userCreate, userExists } = require('../services/user');
+const { userCreate, userExists, userAll } = require('../services/user');
 const { jwtGenerator } = require('../helpers/jwtGenerator');
 
 const userControllerCreate = async (req, res, _next) => {
@@ -21,4 +21,9 @@ const userControllerCreate = async (req, res, _next) => {
     return res.status(201).json({ token });
 };
 
-module.exports = { userControllerCreate };
+const getUserAlls = async (_req, res, _next) => {
+    const getUser = await userAll();
+    return res.status(200).json(getUser);
+};
+
+module.exports = { userControllerCreate, getUserAlls };
