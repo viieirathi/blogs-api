@@ -8,5 +8,6 @@ const router = express.Router();
 
 router.post('/', validations(schemasUser), controller.userControllerCreate);
 router.get('/', authorization, controller.getUserAlls);
+router.get('/:id', authorization, controller.getUserId);
 
 module.exports = router;

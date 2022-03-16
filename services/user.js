@@ -15,4 +15,9 @@ const userAll = async () => {
     return usersAll;
 };
 
-module.exports = { userCreate, userExists, userAll };
+const userId = async (infoId) => {
+ const idUser = await User.findOne({ where: { id: infoId } });
+ return idUser;
+};
+
+module.exports = { userCreate, userExists, userAll, userId };
