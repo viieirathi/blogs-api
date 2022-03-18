@@ -9,7 +9,8 @@ const categorieAll = async () => {
     const categoriesAll = await Categories.findAll();
     return categoriesAll;
 };
+
 module.exports = { 
     categoriesCreate,
-     categorieAll,
+    categorieAll,
     };

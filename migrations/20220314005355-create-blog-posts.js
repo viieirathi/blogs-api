@@ -26,8 +26,14 @@ module.exports = {
           key: 'id',
         },
       },
-      published: Sequelize.STRING,
-      updated: Sequelize.STRING,
+      published: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.DATE,
+      },
+      updated: { 
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, _Sequelize) {
