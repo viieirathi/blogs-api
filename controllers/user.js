@@ -30,8 +30,7 @@ const getUserId = async (req, res, _next) => {
     const { id } = req.params;
     const userInfo = await userId(id);
     if (!userInfo) return res.status(404).json({ message: 'User does not exist' });
-    const { displayName, email, image } = userInfo;
-    return res.status(200).json({ id: userInfo.id, displayName, email, image });
+    return res.status(200).json(userInfo);
 };
 
 module.exports = { userControllerCreate, getUserAlls, getUserId };
