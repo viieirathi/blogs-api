@@ -7,10 +7,9 @@ const blogPostsCreate = async (req, res, _next) => {
     const { title, content, categoryIds } = req.body;
     const categoryId = await categorieAll();
     const idsCategories = categoryId.map(({ dataValues: { id: ids } }) => ids);
-    const validCategories = idsCategories.every((e) => categoryIds.includes(e));
-    if (!validCategories) return res.status('"categoryIds" not found');
+    const validCategories = categoryIds.every((e) => idsCategories.includes(e));
+    if (!validCategories) return res.status(400).json({ message: '"categoryIds" not found' });
     const { userId, id: postId } = await postsCreate({ userId: id, title, content }, categoryIds);
-    console.log('aqui');
     return res.status(201).json({ id: postId,
        userId,
        title,
@@ -19,7 +18,6 @@ const blogPostsCreate = async (req, res, _next) => {
     console.log(error);
   }
 };
-
 const getPostAll = async (_req, res, _next) => {
     const getPost = await blogPostAll();
     return res.status(200).json(getPost);
