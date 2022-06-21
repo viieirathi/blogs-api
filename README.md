@@ -23,7 +23,7 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
 ## Executando aplicação
 
 1. Clone o repositório
-  * `git clone git@github.com:LucasAccurcio/blogs-api.git`.
+  * `git clone git@github.com:viieirathi/blogs-api.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd blogs-api`
 
