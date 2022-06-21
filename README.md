@@ -1,4 +1,4 @@
-# Projeto Store Manager :memo:
+# Projeto Blogs Api:memo:
 
 ## Contexto :selfie:
 
