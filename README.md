@@ -1,6 +1,6 @@
 # Projeto Blogs Api:memo:
 
-## Contexto :selfie:
+## Descrição :selfie:
 
 Neste projeto, foi desenvolvido um back-end usando `ORM` com o pacote `sequelize` do `npm`, onde foi possível:
  - Criar e associar tabelas usando `models` do `sequelize`
