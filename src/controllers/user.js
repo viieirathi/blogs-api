@@ -1,5 +1,5 @@
 const { userCreate, userExists, userAll, userId } = require('../services/user');
-const { jwtGenerator } = require('../helpers/jwtGenerator');
+const { jwtGenerator } = require('../src/helpers/jwtGenerator');
 
 const userControllerCreate = async (req, res, _next) => {
     const {
