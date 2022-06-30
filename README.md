@@ -51,11 +51,37 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
         * `MYSQL_PASSWORD=suasenha`
         
 
-4. Inicializando a API:
+5. Inicializando a API:
   - `npm start`
 
-5. Abra o navegador e acesse a rota:
+6. Abra o navegador e acesse a rota:
   - `http://localhost:3000/api-docs`
+ 
+6. Abra o navegador de sua preferência e coloque a URL: `http://localhost:3001/api-docs`
+   Irá aparecer a seguinte tela:
+   
+   
+   ![BogsApi](https://github.com/viierathi/blogs-api/blob/main/imgs/exemploRotas.png)
+   
+ 7. Faça login e use o token para liberar as rotas autenticadas.
+
+   <details close>
+  
+    <summary>:information_source: Foto demonstrativa: </summary>
+  
+      ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
+   
+   </details>
+
+8. Cologue o Token na caixa Authorize para liberar as rotas autenticadas.
+
+   <details close>
+  
+    <summary>:information_source: Foto demonstrativa: </summary>
+  
+      ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/authorizations.png)
+
+   </details>
 
   
   ## Instrução de como utilizar a API dentro da documentação:
