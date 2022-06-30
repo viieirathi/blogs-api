@@ -69,8 +69,8 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
   
     <summary>:information_source: Foto demonstrativa: </summary>
   
-    ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
-   
+      ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
+
    </details>
 
 8. Cologue o Token na caixa Authorize para liberar as rotas autenticadas.
@@ -91,7 +91,7 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
 
    5. A API irá responder com um "token", copie o conteúdo do "token", apenas o que se encontra entre ""
 
-   7. Clique no botão "Authoroze" e adicione o conteúdo do token no campo "value".
+   7. Clique no botão "Authorize" e adicione o conteúdo do token no campo "value".
 
    9. Pronto, agora todas as rotas possuem autenticação e prontas para serem testadas.
 
