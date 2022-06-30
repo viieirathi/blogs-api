@@ -57,11 +57,11 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
 6. Abra o navegador e acesse a rota:
   - `http://localhost:3000/api-docs`
  
-6. Abra o navegador de sua preferência e coloque a URL: `http://localhost:3001/api-docs`
+6. Abra o navegador de sua preferência e coloque a URL: `http://localhost:3000/api-docs`
    Irá aparecer a seguinte tela:
    
    
-   ![BogsApi](https://github.com/viierathi/blogs-api/blob/main/imgs/exemploRotas.png)
+   ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/exemploRotas.png)
    
  7. Faça login e use o token para liberar as rotas autenticadas.
 
@@ -69,7 +69,7 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
   
     <summary>:information_source: Foto demonstrativa: </summary>
   
-      ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
+    ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
    
    </details>
 
