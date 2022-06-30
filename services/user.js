@@ -20,4 +20,10 @@ const userId = async (infoId) => {
  return idUser;
 };
 
-module.exports = { userCreate, userExists, userAll, userId };
+const delUserId = async (delId) => {
+    const delUser = await User.destroy({ where: { id: delId } });
+    return delUser;
+};
+
+
+module.exports = { userCreate, userExists, userAll, userId, delUserId };

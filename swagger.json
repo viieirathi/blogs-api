@@ -1,0 +1,527 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Blogs API",
+    "description": "API de criação e manipulação de Post em um serviço de Blog.",
+    "contact": {
+      "name": "Thiago Vieira Linkedin",
+      "url": "https://www.linkedin.com/in/viieirathiago/"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor da API"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Autenticação do usuário",
+        "description": "Permite ao usuário manipular dados do Blog",
+        "tags": ["Login"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/login"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "email": "thiivieira@gmail.com",
+                    "password": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Validations errors"
+          },
+          "500": {
+            "description": "internal server error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "summary": "Cadastro de usuário",
+        "description": "Essa rota será responsável por cadastrar um novo usuário",
+        "tags": ["Usuário"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "displayName": "Ayrton Senna",
+                    "email": "ayrtonsennap@gmail.com",
+                    "password": "123456",
+                    "image": "https://sportbuzz.uol.com.br/media/_versions/gettyimages-659224375_widelg.jpg"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Validations errors"
+          },
+          "409": {
+            "description": "User already registered"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "summary": "Busca usuários cadastros",
+        "description": "Essa rota será responsável por retornar todos os usuários cadastrados",
+        "tags": ["Usuário"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "summary": "Busca usuário cadastro por ID",
+        "description": "Essa rota será responsável por retornar usuário cadastrado pelo id",
+        "tags": ["Usuário"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Nome do usuário pelo ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Undocumented"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/user/me": {
+      "delete": {
+        "summary": "Deleta o próprio usuário",
+        "description": "Essa rota será responsável por deletar o próprio usuário no sistema",
+        "tags": ["Usuário"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Undocumented"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "204": {
+            "description": "No content, but \"successfully deleted\""
+          }
+        }
+      }
+    },
+    "/categories": {
+      "post": {
+        "summary": "Cria uma categoria de Posts",
+        "description": "Essa rota será responsável por criar as categorias dos Posts",
+        "tags": ["Categories"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/categories"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "name": "Trybe"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation errors"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Busca as categorias de Post disponíveis",
+        "description": "Essa rota será responsável por buscar todas as categorias de Posts já cadastradas",
+        "tags": ["Categories"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/post": {
+      "post": {
+        "summary": "Cria um Posts no Blog",
+        "description": "Essa rota será responsável por criar os Posts do Blog",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/post"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "title": "Latest updates, August 1st",
+                    "content": "The whole text for the blog post goes here in this key",
+                    "categoryIds": [1, 2]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validations errors"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Busca as categorias de Post disponíveis",
+        "description": "Essa rota será responsável por buscar todas as categorias de Posts já cadastradas",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/post/{id}": {
+      "get": {
+        "summary": "Busca um Post por ID no Blog",
+        "description": "Essa rota será responsável por recuperar um Post do Blog pelo ID",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna Post pelo ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation erros"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Post does not exist!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "summary": "Alterar um Post no Blog",
+        "description": "Essa rota será responsável por alterar um Post do Blog pelo ID - Somente o proprietário pode alterar seu post",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna Post pelo ID",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/postUpdate"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "title": "Latest updates, DECEMBER 1st",
+                    "content": "The_whole_text_for_the_blog_post_goes_here_in_this_key"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation erros"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Post does not exist!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um Post no Blog",
+        "description": "Essa rota será responsável por deletar um Post do Blog pelo ID - Somente o proprietário pode deletar seu post",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Retorna Post pelo ID",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Post deleted."
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Post does not exist!"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/post/search": {
+      "get": {
+        "summary": "Alterar um Post no Blog",
+        "description": "Essa rota será responsável por alterar um Post do Blog pelo ID",
+        "tags": ["Post"],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Busca Post por palavras",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "categories": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "post": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "categoryIds": {
+            "type": "array"
+          }
+        }
+      },
+      "postUpdate": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "authorization"
+      }
+    }
+  }
+}

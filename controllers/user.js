@@ -1,5 +1,5 @@
 const { userCreate, userExists, userAll, userId } = require('../services/user');
-const { jwtGenerator } = require('../src/helpers/jwtGenerator');
+const { jwtGenerator } = require('../helpers/jwtGenerator');
 
 const userControllerCreate = async (req, res, _next) => {
     const {
@@ -33,4 +33,10 @@ const getUserId = async (req, res, _next) => {
     return res.status(200).json(userInfo);
 };
 
-module.exports = { userControllerCreate, getUserAlls, getUserId };
+const deleteUserId = async (req, res, _next) => {
+    const { id } = req.tokenData;
+    await delUserId(id);
+    return res.status(204).end();
+};
+
+module.exports = { userControllerCreate, getUserAlls, getUserId, deleteUserId };
