@@ -54,8 +54,6 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
 5. Inicializando a API:
   - `npm start`
 
-6. Abra o navegador e acesse a rota:
-  - `http://localhost:3000/api-docs`
  
 6. Abra o navegador de sua preferência e coloque a URL: `http://localhost:3000/api-docs`
    Irá aparecer a seguinte tela:
