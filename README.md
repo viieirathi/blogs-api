@@ -63,25 +63,26 @@ Neste projeto, consegui desenvolver as seguintes habilidades:
    
    ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/exemploRotas.png)
    
- 7. Faça login e use o token para liberar as rotas autenticadas.
-
-   <details close>
+7. Faça login e use o token para liberar as rotas autenticadas
+ 
+    <details close>
   
     <summary>:information_source: Foto demonstrativa: </summary>
   
-      ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
+     ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/token.png)
 
-   </details>
+    </details>
+  
+     
+ 8. Cologue o Token na caixa Authorize para liberar as rotas autenticadas.
 
-8. Cologue o Token na caixa Authorize para liberar as rotas autenticadas.
-
-   <details close>
+    <details close>
   
     <summary>:information_source: Foto demonstrativa: </summary>
   
       ![](https://github.com/viieirathi/blogs-api/blob/main/imgs/authorizations.png)
 
-   </details>
+    </details>
 
   
   ## Instrução de como utilizar a API dentro da documentação:
